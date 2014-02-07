@@ -1,0 +1,21 @@
+var tabGroup = Ti.UI.createTabGroup();
+
+var win = Ti.UI.createWindow({
+	title:"Objects",
+	modal: true,
+	backgroundColor:"#FFF",
+	tabBarHidden: true
+	
+});
+
+var tab = Ti.UI.createTab({
+	window: win,
+	title: "Objects"
+});
+var label0 = Ti.UI.createLabel({
+	
+});
+var objectDemoFile = require('objectDemo');
+tab.add(label0);
+tabGroup.addTab(tab);
+tabGroup.open();

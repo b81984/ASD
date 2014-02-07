@@ -1,0 +1,92 @@
+var mainWindow = Ti.UI.createWindow({
+	modal: true,
+	title: "Objects"
+});
+
+var navWindow = Ti.UI.createWindow({
+	title: "Objects",
+	modal: true,
+	backgroundColor: "#FFF"
+});
+
+var navGroup = Ti.UI.iOS.createNavigationWindow({
+	window: navWindow
+});
+var scrollView = Ti.UI.createScrollView({
+	layout: "vertical"
+});
+var object0 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object1 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object2 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object3 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object4 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object5 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object6 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object7 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object8 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+var object9 = Ti.UI.createView({
+	height: 50,
+	top: 5,
+	left: 5,
+	right: 5
+});
+
+var label0 = Ti.UI.createLabel({
+	
+});
+var label1 = Ti.UI.createLabel({
+	
+});
+object0.add(label0);
+object0.add(label1);
+scrollView.add(object0);
+var objectDemoFile = require('objectDemo');
+
+navWindow.add(scrollView);
+mainWindow.add(navGroup);
+navGroup.open();

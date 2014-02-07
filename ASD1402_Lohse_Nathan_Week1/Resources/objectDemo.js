@@ -54,8 +54,40 @@ var game = {
 	},
 	"wait": function(){
 		var daysLeft = (28-6)+4;
-		return("Only " + daysLeft+" left to wait!");
+		return("Only " + daysLeft+" days left to wait!");
 	}
+};
+
+var map = new Object();
+map.title = "Map";
+map.region = "Kalos";
+map.contents = function(){
+	return("Name: "+this.title+", Region: "+this.region);
+};
+map.compare = function(){
+	return("Based on Europe, but with Pokemon!");
+};
+
+var fox = new Object();
+fox.title = "Fox";
+fox.color = "Red";
+fox.contents = function(){
+	return("Name: "+this.title+", Color: "+this.color);
+};
+fox.sound = function(){
+	return("What exactly does it say?");
+};
+
+var rent = new Object();
+rent.title = "Rent";
+rent.monthly = 500;
+rent.split = 3;
+rent.contents = function(){
+	return("Name: "+this.title+", Monthly: $"+this.monthly+", Ways split: "+this.split);
+};
+rent.owed = function(){
+	var total = this.monthly/this.split;
+	return("My payment = "+total);
 };
 label0.text = rectangle.contents();
 label1.text = rectangle.perimeter();
@@ -67,3 +99,9 @@ label6.text = book.contents();
 label7.text = book.quote();
 label8.text = game.contents();
 label9.text = game.wait();
+label10.text = map.contents();
+label11.text = map.compare();
+label12.text = fox.contents();
+label13.text = fox.sound();
+label14.text = rent.contents();
+label15.text = rent.owed();

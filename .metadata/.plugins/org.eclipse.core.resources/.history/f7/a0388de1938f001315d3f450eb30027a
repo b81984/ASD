@@ -1,0 +1,22 @@
+var mainWindow = Ti.UI.createWindow({
+	modal: true,
+	title: "Objects"
+});
+
+var navWindow = Ti.UI.createWindow({
+	title: "Objects",
+	modal: true,
+	backgroundColor: "#FFF"
+});
+
+var navGroup = Ti.UI.iOS.createNavigationWindow({
+	window: navWindow
+});
+
+var label0 = Ti.UI.createLabel({
+	
+});
+var objectDemoFile = require('objectDemo');
+
+mainWindow.add(navGroup);
+navGroup.open();
