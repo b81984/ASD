@@ -26,3 +26,25 @@ org.eclipse.core.runtime.CoreException: Unable to find 'alloy' binary.
 
 !ENTRY org.eclipse.osgi 2 1 2014-02-06 17:57:16.569
 !MESSAGE NLS missing message: BasicProjectCreationPage_crossPlatformWarningIOS in: com.appcelerator.titanium.ui.wizard.messages
+!SESSION 2014-02-06 18:19:02.670 -----------------------------------------------
+eclipse.buildId=3.1.3.201309132423
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/Nathan/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -data /Users/Nathan/Desktop/ASD -keyring /Users/Nathan/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-06 18:19:07.396
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.appcelerator.titanium.alloy.ui 4 0 2014-02-06 18:19:09.894
+!MESSAGE (Build 3.1.3.201309132423) [ERROR]  Failed to add Alloy project templates
+!STACK 1
+org.eclipse.core.runtime.CoreException: Unable to find 'alloy' binary.
+	at com.appcelerator.titanium.alloy.internal.ui.AlloyTemplateInstaller.getTemplatesWithNewCommand(AlloyTemplateInstaller.java:285)
+	at com.appcelerator.titanium.alloy.internal.ui.AlloyTemplateInstaller.getTemplates(AlloyTemplateInstaller.java:269)
+	at com.appcelerator.titanium.alloy.internal.ui.AlloyTemplateInstaller.access$0(AlloyTemplateInstaller.java:267)
+	at com.appcelerator.titanium.alloy.internal.ui.AlloyTemplateInstaller$1.run(AlloyTemplateInstaller.java:161)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 com.appcelerator.titanium.alloy.ui 4 0 2014-02-06 18:19:09.895
+!MESSAGE Unable to find 'alloy' binary.
