@@ -88,7 +88,7 @@ var object8 = Ti.UI.createView({
 	layout: "vertical"
 });
 var object9 = Ti.UI.createView({
-	height: 70,
+	height: 50,
 	top: 5,
 	left: 5,
 	right: 5,
@@ -174,8 +174,6 @@ object7.add(label14);
 object7.add(label15);
 object8.add(label16);
 object8.add(label17);
-object9.add(label18);
-object9.add(label19);
 scrollView.add(object0);
 scrollView.add(object1);
 scrollView.add(object2);
@@ -185,7 +183,6 @@ scrollView.add(object5);
 scrollView.add(object6);
 scrollView.add(object7);
 scrollView.add(object8);
-scrollView.add(object9);
 var objectDemoFile = require('objectDemo');
 
 navWindow.add(scrollView);

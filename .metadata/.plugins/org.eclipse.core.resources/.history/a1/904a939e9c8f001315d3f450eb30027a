@@ -72,7 +72,7 @@ var object6 = Ti.UI.createView({
 	layout: "vertical"
 });
 var object7 = Ti.UI.createView({
-	height: 70,
+	height: 50,
 	top: 5,
 	left: 5,
 	right: 5,
@@ -80,7 +80,7 @@ var object7 = Ti.UI.createView({
 	layout: "vertical"
 });
 var object8 = Ti.UI.createView({
-	height: 90,
+	height: 50,
 	top: 5,
 	left: 5,
 	right: 5,
@@ -88,7 +88,7 @@ var object8 = Ti.UI.createView({
 	layout: "vertical"
 });
 var object9 = Ti.UI.createView({
-	height: 70,
+	height: 50,
 	top: 5,
 	left: 5,
 	right: 5,
@@ -132,30 +132,6 @@ var label10 = Ti.UI.createLabel({
 var label11 = Ti.UI.createLabel({
 	
 });
-var label12 = Ti.UI.createLabel({
-	
-});
-var label13 = Ti.UI.createLabel({
-	
-});
-var label14 = Ti.UI.createLabel({
-	
-});
-var label15 = Ti.UI.createLabel({
-	
-});
-var label16 = Ti.UI.createLabel({
-	
-});
-var label17 = Ti.UI.createLabel({
-	
-});
-var label18 = Ti.UI.createLabel({
-	
-});
-var label19 = Ti.UI.createLabel({
-	
-});
 object0.add(label0);
 object0.add(label1);
 object1.add(label2);
@@ -166,26 +142,11 @@ object3.add(label6);
 object3.add(label7);
 object4.add(label8);
 object4.add(label9);
-object5.add(label10);
-object5.add(label11);
-object6.add(label12);
-object6.add(label13);
-object7.add(label14);
-object7.add(label15);
-object8.add(label16);
-object8.add(label17);
-object9.add(label18);
-object9.add(label19);
 scrollView.add(object0);
 scrollView.add(object1);
 scrollView.add(object2);
 scrollView.add(object3);
 scrollView.add(object4);
-scrollView.add(object5);
-scrollView.add(object6);
-scrollView.add(object7);
-scrollView.add(object8);
-scrollView.add(object9);
 var objectDemoFile = require('objectDemo');
 
 navWindow.add(scrollView);

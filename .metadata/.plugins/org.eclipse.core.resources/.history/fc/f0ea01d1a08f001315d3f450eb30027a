@@ -102,16 +102,6 @@ wage.total = function(){
 	var earned = this.base*this.overnight*this.overtime;
 	return("Mandatory Overtime means "+earned+"/hr. Hard but worth it!");
 };
-
-var shorts = new Object();
-shorts.title = "Shorts";
-shorts.description = "Comfy and Easy to Wear!";
-shorts.contents = function(){
-	return("Name: "+this.title+", Description: "+this.description);
-};
-shorts.query = function(){
-	return("Don't you like to wear shorts?");
-};
 label0.text = rectangle.contents();
 label1.text = rectangle.perimeter();
 label2.text = square.contents();
@@ -130,5 +120,3 @@ label14.text = rent.contents();
 label15.text = rent.owed();
 label16.text = wage.contents();
 label17.text = wage.total();
-label18.text = shorts.contents();
-label19.text = shorts.query();

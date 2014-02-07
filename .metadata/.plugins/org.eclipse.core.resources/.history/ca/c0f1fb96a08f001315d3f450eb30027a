@@ -89,29 +89,6 @@ rent.owed = function(){
 	var total = this.monthly/this.split;
 	return("My payment = "+total);
 };
-
-var wage = new Object();
-wage.title = "Wage";
-wage.base = 10;
-wage.overnight = 1.1;
-wage.overtime = 1.5;
-wage.contents = function(){
-	return("Name: "+this.title+", Base: $"+this.base+"/hr, Overnight: "+this.overnight+"x, Overtime: "+this.overtime+"x");
-};
-wage.total = function(){
-	var earned = this.base*this.overnight*this.overtime;
-	return("Mandatory Overtime means "+earned+"/hr. Hard but worth it!");
-};
-
-var shorts = new Object();
-shorts.title = "Shorts";
-shorts.description = "Comfy and Easy to Wear!";
-shorts.contents = function(){
-	return("Name: "+this.title+", Description: "+this.description);
-};
-shorts.query = function(){
-	return("Don't you like to wear shorts?");
-};
 label0.text = rectangle.contents();
 label1.text = rectangle.perimeter();
 label2.text = square.contents();
@@ -128,7 +105,3 @@ label12.text = fox.contents();
 label13.text = fox.sound();
 label14.text = rent.contents();
 label15.text = rent.owed();
-label16.text = wage.contents();
-label17.text = wage.total();
-label18.text = shorts.contents();
-label19.text = shorts.query();
