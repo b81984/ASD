@@ -1,13 +1,10 @@
-//Nathan Lohse
-// ASDI 1402
-//2/13/2014
+// this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Titanium.UI.setBackgroundColor('#000');
 
 
 var win1 = Titanium.UI.createWindow({  
     title:'Wow Items',
-    backgroundColor:'#fff',
-    modal: true
+    backgroundColor:'#fff'
 });
 
 var scrollView = Ti.UI.createScrollView({
@@ -19,6 +16,6 @@ var wowArmoryFile = require('wowArmory');
 var head = Ti.UI.createLabel({
 		text: null
 	});
-win1.add(scrollView);
+win1.add(head);
 
 win1.open();

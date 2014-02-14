@@ -1,0 +1,18 @@
+var remoteResponse = function(){
+	Ti.API.debug(this.responseText);
+	
+};
+
+var remoteError = function(e){
+	
+	
+};
+
+var xhr = Ti.Network.createHTTPClient({
+	onload: remoteResponse,
+	onError: remoteError,
+	timeout: 5000
+});
+
+xhr.open('GET', "http://us.battle.net/api/wow/character/Arthas/Dethcrash?fields=items");
+xhr.send();

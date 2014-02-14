@@ -1,0 +1,37 @@
+Logger started at: Thursday, February 13, 2014 5:26:42 PM CST
+Component: com.appcelerator.titanium.mobile
+Version: 1.0.0.1379026748
+[26:42.706] Sent: >21*1392334002691*version<
+[26:42.707] Recv: >1392334002691*2*3.1.3.GA<
+[26:42.762] Sent: >20*1392334002692*update<
+[26:42.763] Recv: >1392334002692*3.1.3.GA<
+[26:42.763] Sent: >45*1392334002693*option*stepFiltersEnabled*false<
+[26:42.763] Recv: >1392334002693<
+[26:42.776] Sent: >36*1392334002694*option*monitorXHR*true<
+[26:42.777] Recv: >1392334002694<
+[26:42.777] Sent: >45*1392334002695*option*suspendOnFirstLine*false<
+[26:42.777] Recv: >1392334002695<
+[26:42.777] Sent: >46*1392334002696*option*suspendOnExceptions*false<
+[26:42.778] Recv: >1392334002696<
+[26:42.778] Sent: >41*1392334002697*option*suspendOnErrors*true<
+[26:42.778] Recv: >1392334002697<
+[26:42.778] Sent: >43*1392334002698*option*suspendOnKeywords*true<
+[26:42.778] Recv: >1392334002698<
+[26:42.778] Sent: >45*1392334002699*option*bypassConstructors*false<
+[26:42.779] Recv: >1392334002699<
+[26:42.779] Sent: >45*1392334002700*option*stepFiltersEnabled*false<
+[26:42.779] Recv: >1392334002700<
+[26:42.779] Sent: >30*1392334002701*detailFormatters<
+[26:42.779] Recv: >1392334002701<
+[26:42.780] Sent: >20*1392334002702*enable<
+[26:42.780] Recv: >1392334002702<
+[26:42.781] Recv: >threads*created*0*kroll$1<
+[26:42.783] Recv: >log*out*[DEBUG] Analytics is enabled = YES<
+[26:42.783] Recv: >log*out*[DEBUG] Loading: /Users/Nathan/Library/Application Support/iPhone Simulator/7.0.3/Applications/4AFDCE58-7317-473C-9A0C-97163EB2A576/ASDI1402_Week2.app/app.js, Resource: app_js<
+[26:42.784] Recv: >scripts*created*316922400|app:/app.js||1|19<
+[26:42.784] Recv: >resumed*0*started<
+[26:42.785] Recv: >log*out*[DEBUG] Loading: /Users/Nathan/Library/Application Support/iPhone Simulator/7.0.3/Applications/4AFDCE58-7317-473C-9A0C-97163EB2A576/ASDI1402_Week2.app/wowArmory.js, Resource: wowArmory_js<
+[26:42.785] Recv: >scripts*created*316922304|app:/wowArmory.js||1|19<
+[26:42.807] Recv: >log*out*[DEBUG] Application booted in 529.366016 ms<
+[26:43.343] Recv: >log*out*[debug] {"lastModified":1389246420000,"name":"Dethcrash","realm":"Arthas","battlegroup":"Ruin","class":6,"race":6,"gender":0,"level":90,"achievementPoints":6960,"thumbnail":"arthas/23/72419607-avatar.jpg","calcClass":"d","items":{"averageItemLevel":486,"averageItemLevelEquipped":485,"head":{"id":101855,"name":"Elder Tortoiseshell Helm of the Untouchable","icon":"inv_helmet_plate_reputation_c_01","quality":4,"itemLevel":496,"tooltipParams":{"suffix":-383,"seed":448071958,"upgrade":{"current":0,"total":2,"itemLevelIncrement":0}},"stats":[{"stat":4,"amount":983},{"stat":7,"amount":1835}],"armor":4482},"neck":{"id":95144,"name":"Vanguard's Battletags","icon":"inv_jewelry_necklace_134","quality":4,"itemLevel":522,"tooltipParams":{"upgrade":{"current":0,"total":2,"itemLevelIncrement":0}},"stats":[{"stat":4,"amount":868},{"stat":14,"amount":536},{"stat":31,"amount":604},{"stat":7,"amount":1302}],"armor":0},"shoulder":{"id":101858,"name":"Elder Tortoiseshell Pauldrons of the Bladewall","icon":"inv_shoulder_pl...4344<
+----------End of file----------

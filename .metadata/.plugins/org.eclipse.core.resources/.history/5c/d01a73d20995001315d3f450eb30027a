@@ -3,41 +3,30 @@ var json,tempLabel0,tempLabel1;
 var remoteResponse = function(){
 //	Ti.API.debug(this.responseText);
 	//alert(this.responseText);
-	//alert("1");
+	alert("1");
 	json = JSON.parse(this.responseText);
-	var nCount = 0;
-	for(n in json.items)
+	for(var i = 0; i<json.items.length; i++)
 	{
 		var view = Ti.UI.createView({
 			backgroundColor: "#606060",
-			layout: 'vertical',
-			top: 15,
-			left: 5,
-			right: 5,
-			height: 75
+			layout: 'vertical'
 		});
-	
 		var label0 = Ti.UI.createLabel({
-			text: "Item name: "+json.items[n].name
+			text: json.items[i].name
 		});
 		var label1 = Ti.UI.createLabel({
-			text: "Item Level: "+ json.items[n].itemLevel
+			text: json.items[i].itemLevel
 		});
 		view.add(label0);
 		view.add(label1);
-		nCount++;
-		if(nCount > 2) //had to add this due to the data structure from the WoW API; the first two items in json.items are, counterintuitively, not items.
-		{
-			scrollView.add(view);
-		}
-		
+		scrollView.add(view);
 	};
+	
+	//head.text = json.items.head.name;
 };
 
 var remoteError = function(e){
-	Ti.API.debug(this.status);
-	Ti.API.debug(this.responseText);
-	Ti.API.debug(e.error);
+	
 	
 };
 
