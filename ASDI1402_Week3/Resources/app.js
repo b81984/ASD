@@ -15,7 +15,7 @@ var scrollView = Ti.UI.createScrollView({
 });
 
 
-var wowArmoryFile = require('Form');
+var formFile = require('Form');
 var head = Ti.UI.createLabel({
 		text: null
 	});

@@ -1,1 +1,217 @@
-var db = Titanium.Database.Open('formItems');
+var db = Titanium.Database.open('notes');
+db.execute('CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, title TEXT, date TEXT, body TEXT)');
+db.execute('DELETE FROM notes');
+db.execute('INSERT INTO notes (title, urgent, body) VALUES(?, ?, ?)', 'Test', 1, 'This is the test item');
+db.execute('INSERT INTO notes (title, urgent, body) VALUES(?, ?, ?)', 'Also Test', 0, 'This is the other test');
+var test = db.execute('SELECT id,title,urgent,body FROM notes');
+/*alert(test.rowCount);
+alert(test.field(1));
+test.next();
+alert(test.field(1));
+db.close();
+*/
+var goButton = Ti.UI.createView({
+	top: 15,
+	bottom: 15,
+	left: 15,
+	right: 15,
+	height: 50
+});
+
+
+
+var editing = false;
+var table = Ti.UI.createTableView({
+		style: Ti.UI.iPhone.TableViewStyle.GROUPED
+		
+	});
+var currentNote = 0;
+var noteEditor = Ti.UI.createWindow({
+	backgroundColor : "#606060",
+	layout: "vertical"
+});
+var noteTitleInput = Ti.UI.createTextField({
+	left: 15,
+	right: 15,
+	top: 10,
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	backgroundColor: "#FFF",
+	hintText: "Note Title(Required)"
+	
+});
+var noteTextInput = Ti.UI.createTextArea({
+	left: 15,
+	right: 15,
+	top: 10,
+	height: 120,
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	backgroundColor: "#FFF",
+	hintText: "Note Body(Required)"
+	
+});
+var noteDateInput = Ti.UI.createTextField({
+	left: 15,
+	right: 15,
+	top: 10,
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	backgroundColor: "#FFF",
+	hintText: "Note Date"
+});
+var saveButton = Ti.UI.createView({
+	left: 15,
+	right: 15,
+	top: 10,
+	height: 50,
+	backgroundColor: "#FFF"
+});
+var saveLabel = Ti.UI.createLabel({
+	text: "Save"
+});
+var editButton = Ti.UI.createView({
+	left: 15,
+	right: 15,
+	top: 10,
+	height: 50,
+	backgroundColor: "#FFF"
+});
+var editLabel = Ti.UI.createLabel({
+	text: "Edit"
+});
+editButton.add(editLabel);
+var editNote = function(){
+	var noteRS = db.exectue('SELECT id,title,urgent,body FROM notes');
+	while(noteRS.field(0) != currentNote)
+	{
+		noteRS.next();
+	};
+	noteTitleInput.value = noteRS.field(1);
+	noteTextInput.value = noteRS.field(2);
+	noteDateInput.value = noteRS.field(4);
+	editing = true;
+	navGroup.openWindow(noteEditor);
+};
+editButton.addEventListener('click', editNote);
+var fieldCheck = function()
+{
+	if(noteTitleInput.value != null && noteTextInput.value != null)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	};
+};
+var saveData = function()
+{
+	if(fieldCheck())
+	{
+		if(editing)
+		{
+			db.exeute('UPDATE notes SET title=?, date=?, body=? WHERE id=?',noteTitleInput.value, noteDateInput.value, noteTextInput.value, currentNote);
+		}
+		else
+		{
+			db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', noteTitleInput.value, noteDateInput.value, noteDateInput.value);
+		};
+	}
+	else
+	{
+		alert("The Title and Body fields are required!");
+	};
+	navGroup.closeWindow(noteEditor);
+	navGroup.closeWindow(noteDetailWindow);
+	drawList();
+};
+saveButton.add(saveLabel);
+saveButton.addEventListener('click', saveData);
+noteEditor.add(noteTitleInput);
+noteEditor.add(noteTextInput);
+noteEditor.add(noteDateInput);
+noteEditor.add(saveButton);
+var newNote = function(){
+	noteRS = db.execute('SELECT * FROM notes');
+	editing = false;
+	noteTitleInput.value = null;
+	noteTextInput.value = null;
+	noteDateInput.value = null;
+	navGroup.openWindow(noteEditor);
+	currentNote = noteRS.rowCount();
+	
+};
+
+var noteDisplayWindow = Ti.UI.createWindow({
+	backgroundColor : "#606060",
+	layout: "vertical"
+});
+var noteDetailWindow = Ti.UI.createWindow({
+	backgroundColor : "#606060",
+	layout: "vertical"
+});
+var noteTitle = Ti.UI.createLabel({
+	font: {fontSize: 16},
+	top: 5
+});
+var noteText = Ti.UI.createLabel({
+	font: {fontSize: 12},
+	top: 10
+});
+var noteDate = Ti.UI.createLabel({
+	font: {fontSize: 12},
+	top: 10
+});
+noteDetailWindow.add(noteTitle);
+noteDetailWindow.add(noteText);
+noteDetailWindow.add(noteDate);
+noteDetailWindow.add(editButton);
+var noteDetails = Ti.UI.createWindow({
+	backgroundColor: "#606060"
+});
+var viewNote = function(event){
+	    noteTitle.text = this.title;
+	    noteText.text = this.text;
+	    noteDate.text = this.date;
+	    currentNote = this.noteNum;
+	    navGroup.openWindow(noteDetailWindow);
+	};
+var activeUser = 0;
+
+var drawList = function(){
+	var chunk = Ti.UI.createTableViewSection({
+	headerTitle: "Notes"
+	});
+	var chunk2 = Ti.UI.createTableViewSection({
+		headerTitle: "Add Note"
+	});
+	var row = Ti.UI.createTableViewRow({
+		title: "Create New Note",
+		font: {fontSize: 16, fontFamily: 'Arial'},
+		hasChild: true
+	});
+	row.addEventListener('click', newNote);
+	chunk2.add(row);
+	var noteRS = db.execute('SELECT * FROM notes');
+	while(noteRS.isValidRow())
+		{
+			
+			//alert(users.user[activeUser].notes[i].text);
+			var theRow = Ti.UI.createTableViewRow({
+				title: noteRS.field(1),
+				text: noteRS.field(3),
+				font: {fontSize: 16, fontFamily: 'Arial'},
+				noteNum: noteRS.fieldByName('id'),
+				date: noteRS.field(2),
+				hasChild: true
+			});
+			chunk.add(theRow);
+			theRow.addEventListener('click', viewNote);
+			noteRS.next();
+		};
+		var section = [chunk, chunk2];
+		table.setData(section);
+};
+
+scrollView.add(table);
+drawList();
+
+
