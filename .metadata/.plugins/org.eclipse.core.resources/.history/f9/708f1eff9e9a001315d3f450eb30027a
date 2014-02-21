@@ -1,6 +1,17 @@
 var db = Titanium.Database.open('notes');
+db.execute('DROP TABLE IF EXISTS notes');
 db.execute('CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, title TEXT, date TEXT, body TEXT)');
+db.execute('DELETE FROM notes');
+db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', 'Test', '12/01/1991', 'This is the test item');
+db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', 'Also Test', '1/12/15', 'This is the other test');
 var noteRS;
+//var test = db.execute('SELECT id,title,urgent,body FROM notes');
+/*alert(test.rowCount);
+alert(test.field(1));
+test.next();
+alert(test.field(1));
+db.close();
+*/
 var goButton = Ti.UI.createView({
 	top: 15,
 	bottom: 15,
@@ -8,9 +19,13 @@ var goButton = Ti.UI.createView({
 	right: 15,
 	height: 50
 });
+
+
+
 var editing = false;
 var table = Ti.UI.createTableView({
-		style: Ti.UI.iPhone.TableViewStyle.GROUPED	
+		style: Ti.UI.iPhone.TableViewStyle.GROUPED
+		
 	});
 var currentNote = 0;
 var noteEditor = Ti.UI.createWindow({
@@ -37,6 +52,7 @@ var noteTextInput = Ti.UI.createTextArea({
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	backgroundColor: "#FFF",
 	hintText: "Note Body(Required)"
+	
 });
 var noteDateInput = Ti.UI.createTextField({
 	left: 15,
@@ -78,15 +94,14 @@ var editLabel = Ti.UI.createLabel({
 });
 editButton.add(editLabel);
 var editNote = function(){
-	//noteRS = db.exectue('SELECT * FROM notes');
-	noteRS = db.execute('SELECT * FROM notes');
+	noteRS = db.exectue('SELECT * FROM notes');
 	while(noteRS.field(0) != currentNote)
 	{
 		noteRS.next();
 	};
 	noteTitleInput.value = noteRS.field(1);
-	noteTextInput.value = noteRS.field(3);
-	noteDateInput.value = noteRS.field(2);
+	noteTextInput.value = noteRS.field(2);
+	noteDateInput.value = noteRS.field(4);
 	editing = true;
 	navGroup.openWindow(noteEditor);
 };
@@ -108,7 +123,7 @@ var saveData = function()
 	{
 		if(editing)
 		{
-			db.execute('UPDATE notes SET title=?, date=?, body=? WHERE id=?',noteTitleInput.value, noteDateInput.value, noteTextInput.value, currentNote);
+			db.exeute('UPDATE notes SET title=?, date=?, body=? WHERE id=?',noteTitleInput.value, noteDateInput.value, noteTextInput.value, currentNote);
 		}
 		else
 		{
@@ -127,9 +142,7 @@ var saveData = function()
 var deleteData = function()
 {
 	db.execute('DELETE FROM notes WHERE id=?', currentNote);
-	navGroup.closeWindow(noteDetailWindow);
-	drawList();
-};
+}
 saveButton.add(saveLabel);
 saveButton.addEventListener('click', saveData);
 deleteButton.add(deleteLabel);
@@ -206,6 +219,8 @@ var drawList = function(){
 	var noteRS = db.execute('SELECT * FROM notes');
 	while(noteRS.isValidRow())
 		{
+			
+			//alert(users.user[activeUser].notes[i].text);
 			var theRow = Ti.UI.createTableViewRow({
 				title: noteRS.field(1),
 				text: noteRS.field(3),

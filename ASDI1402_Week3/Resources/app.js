@@ -5,13 +5,13 @@ Titanium.UI.setBackgroundColor('#000');
 
 
 var win1 = Titanium.UI.createWindow({  
-    title:'Wow Items',
+    title:'Form Project',
     backgroundColor:'#fff',
     modal: true
 });
 
 var navWindow = Ti.UI.createWindow({
-	title: "Notepad",
+	title: "Form Project",
 	modal: true,
 	backgroundColor: "#606060",
 	layout: "vertical"
