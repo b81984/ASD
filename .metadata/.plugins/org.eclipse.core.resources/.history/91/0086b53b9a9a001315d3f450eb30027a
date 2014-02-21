@@ -1,27 +1,35 @@
 var db = Titanium.Database.open('notes');
-db.execute('DROP TABLE IF EXISTS notes');
-db.execute('CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, title TEXT, date TEXT, body TEXT)');
+db.execute('CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, title TEXT, urgent BOOLEAN, body TEXT)');
 db.execute('DELETE FROM notes');
-db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', 'Test', '12/01/1991', 'This is the test item');
-db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', 'Also Test', '1/12/15', 'This is the other test');
-var noteRS;
-//var test = db.execute('SELECT id,title,urgent,body FROM notes');
-/*alert(test.rowCount);
+db.execute('INSERT INTO notes (title, urgent, body) VALUES(?, ?, ?)', 'Test', 1, 'This is the test item');
+db.execute('INSERT INTO notes (title, urgent, body) VALUES(?, ?, ?)', 'Also Test,', 0, 'This is the other test');
+var test = db.execute('SELECT id,title,urgent,body FROM notes');
+alert(test.rowCount);
 alert(test.field(1));
 test.next();
 alert(test.field(1));
 db.close();
-*/
-var goButton = Ti.UI.createView({
-	top: 15,
-	bottom: 15,
-	left: 15,
-	right: 15,
-	height: 50
+/*
+var table = Ti.UI.createTableView({
+	style: Ti.UI.iPhone.TableViewStyle.GROUPED
+});
+var testRow = Ti.UI.createTableViewRow({
+	title: "Test Row",
+	key: 0,
+	font: {fontSize: 16, fontFamily: 'Arial'},
+	hasChild: true
 });
 
+var tableSections = [];
+var section = Ti.UI.createTableViewSection({
+	
+});
+section.add(testRow);
+tableSections.push(section);
+table.setData(tableSections);
+*/
 
-
+/*
 var editing = false;
 var table = Ti.UI.createTableView({
 		style: Ti.UI.iPhone.TableViewStyle.GROUPED
@@ -40,9 +48,6 @@ var noteTitleInput = Ti.UI.createTextField({
 	backgroundColor: "#FFF",
 	hintText: "Note Title(Required)"
 	
-});
-var bodyLabel = Ti.UI.createLabel({
-	text: "Note Body (Required): ",
 });
 var noteTextInput = Ti.UI.createTextArea({
 	left: 15,
@@ -69,18 +74,13 @@ var saveButton = Ti.UI.createView({
 	height: 50,
 	backgroundColor: "#FFF"
 });
+var urgent = Ti.UI.createSwitch({
+	value: false,
+	top: 15
+});
+
 var saveLabel = Ti.UI.createLabel({
 	text: "Save"
-});
-var deleteButton = Ti.UI.createView({
-	left: 15,
-	right: 15,
-	top: 10,
-	height: 50,
-	backgroundColor: "#FFF"
-});
-var deleteLabel = Ti.UI.createLabel({
-	text: "Delete"
 });
 var editButton = Ti.UI.createView({
 	left: 15,
@@ -94,77 +94,45 @@ var editLabel = Ti.UI.createLabel({
 });
 editButton.add(editLabel);
 var editNote = function(){
-	//noteRS = db.exectue('SELECT * FROM notes');
-	noteRS = db.execute('SELECT * FROM notes');
-	while(noteRS.field(0) != currentNote)
-	{
-		noteRS.next();
-	};
-	noteTitleInput.value = noteRS.field(1);
-	noteTextInput.value = noteRS.field(3);
-	noteDateInput.value = noteRS.field(2);
+	var noteRS = db.exectue('SELECT id,title,urgent,body FROM notes');
+	noteTitleInput.value = 
+	noteTextInput.value = users.user[activeUser].notes[currentNote].text;
+	noteDateInput.value = users.user[activeUser].notes[currentNote].date;
 	editing = true;
 	navGroup.openWindow(noteEditor);
 };
 editButton.addEventListener('click', editNote);
-var fieldCheck = function()
-{
-	if(noteTitleInput.value != '' && noteTextInput.value != '')
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	};
-};
 var saveData = function()
 {
-	if(fieldCheck() === true)
+	if(currentNote < users.user[activeUser].notes.length)
 	{
-		if(editing)
-		{
-			db.execute('UPDATE notes SET title=?, date=?, body=? WHERE id=?',noteTitleInput.value, noteDateInput.value, noteTextInput.value, currentNote);
-		}
-		else
-		{
-			db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', noteTitleInput.value, noteDateInput.value, noteTextInput.value);
-		};
+		users.user[activeUser].notes[currentNote].title = noteTitleInput.value;
+		users.user[activeUser].notes[currentNote].text = noteTextInput.value;
+		users.user[activeUser].notes[currentNote].date = noteDateInput.value;
 	}
 	else
 	{
-		alert("The Title and Body fields are required!");
+		var addedNote = {"title": noteTitleInput.value, "text": noteTextInput.value, "date": noteDateInput.value};
+		users.user[activeUser].notes.push(addedNote);
 	};
+	//alert("got here");
 	navGroup.closeWindow(noteEditor);
-	navGroup.closeWindow(noteDetailWindow);
-	drawList();
-};
-
-var deleteData = function()
-{
-	db.execute('DELETE FROM notes WHERE id=?', currentNote);
 	navGroup.closeWindow(noteDetailWindow);
 	drawList();
 };
 saveButton.add(saveLabel);
 saveButton.addEventListener('click', saveData);
-deleteButton.add(deleteLabel);
-deleteButton.addEventListener('click', deleteData);
 noteEditor.add(noteTitleInput);
-noteEditor.add(bodyLabel);
+noteEditor.add(urgent);
 noteEditor.add(noteTextInput);
 noteEditor.add(noteDateInput);
 noteEditor.add(saveButton);
-noteEditor.add(deleteButton);
-
 var newNote = function(){
-	noteRS = db.execute('SELECT * FROM notes');
-	editing = false;
 	noteTitleInput.value = null;
 	noteTextInput.value = null;
 	noteDateInput.value = null;
 	navGroup.openWindow(noteEditor);
-	currentNote = noteRS.rowCount;
+	currentNote = users.user[activeUser].notes.length;
 	
 };
 
@@ -192,7 +160,6 @@ noteDetailWindow.add(noteTitle);
 noteDetailWindow.add(noteText);
 noteDetailWindow.add(noteDate);
 noteDetailWindow.add(editButton);
-noteDetailWindow.add(deleteButton);
 var noteDetails = Ti.UI.createWindow({
 	backgroundColor: "#606060"
 });
@@ -219,28 +186,30 @@ var drawList = function(){
 	});
 	row.addEventListener('click', newNote);
 	chunk2.add(row);
-	var noteRS = db.execute('SELECT * FROM notes');
-	while(noteRS.isValidRow())
+
+	for(var i= 0; i <users.user[activeUser].notes.length; i++)
 		{
-			
 			//alert(users.user[activeUser].notes[i].text);
 			var theRow = Ti.UI.createTableViewRow({
-				title: noteRS.field(1),
-				text: noteRS.field(3),
+				title: users.user[activeUser].notes[i].title,
+				text: users.user[activeUser].notes[i].text,
 				font: {fontSize: 16, fontFamily: 'Arial'},
-				noteNum: noteRS.fieldByName('id'),
-				date: noteRS.field(2),
+				noteNum: i,
+				date: users.user[activeUser].notes[i].date,
 				hasChild: true
 			});
 			chunk.add(theRow);
 			theRow.addEventListener('click', viewNote);
-			noteRS.next();
+			
 		};
 		var section = [chunk, chunk2];
 		table.setData(section);
 };
 
-scrollView.add(table);
-drawList();
 
+buttonView.addEventListener('click', loginAttempt);
 
+var urgent = Ti.UI.createSwitch({
+	value: false,
+	top: 15
+});*/

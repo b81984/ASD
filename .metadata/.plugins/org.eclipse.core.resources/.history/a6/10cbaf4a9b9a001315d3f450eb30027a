@@ -37,7 +37,6 @@ var formFile = require('Form');
 var head = Ti.UI.createLabel({
 		text: null
 	});
-navWindow.add(scrollView);
 win1.add(navGroup);
 
 navGroup.open();

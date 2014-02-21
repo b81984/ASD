@@ -1,12 +1,10 @@
 var db = Titanium.Database.open('notes');
-db.execute('DROP TABLE IF EXISTS notes');
 db.execute('CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, title TEXT, date TEXT, body TEXT)');
 db.execute('DELETE FROM notes');
-db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', 'Test', '12/01/1991', 'This is the test item');
-db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', 'Also Test', '1/12/15', 'This is the other test');
-var noteRS;
-//var test = db.execute('SELECT id,title,urgent,body FROM notes');
-/*alert(test.rowCount);
+/*db.execute('INSERT INTO notes (title, urgent, body) VALUES(?, ?, ?)', 'Test', 1, 'This is the test item');
+db.execute('INSERT INTO notes (title, urgent, body) VALUES(?, ?, ?)', 'Also Test', 0, 'This is the other test');
+var test = db.execute('SELECT id,title,urgent,body FROM notes');
+alert(test.rowCount);
 alert(test.field(1));
 test.next();
 alert(test.field(1));
@@ -41,9 +39,6 @@ var noteTitleInput = Ti.UI.createTextField({
 	hintText: "Note Title(Required)"
 	
 });
-var bodyLabel = Ti.UI.createLabel({
-	text: "Note Body (Required): ",
-});
 var noteTextInput = Ti.UI.createTextArea({
 	left: 15,
 	right: 15,
@@ -72,16 +67,6 @@ var saveButton = Ti.UI.createView({
 var saveLabel = Ti.UI.createLabel({
 	text: "Save"
 });
-var deleteButton = Ti.UI.createView({
-	left: 15,
-	right: 15,
-	top: 10,
-	height: 50,
-	backgroundColor: "#FFF"
-});
-var deleteLabel = Ti.UI.createLabel({
-	text: "Delete"
-});
 var editButton = Ti.UI.createView({
 	left: 15,
 	right: 15,
@@ -94,22 +79,21 @@ var editLabel = Ti.UI.createLabel({
 });
 editButton.add(editLabel);
 var editNote = function(){
-	//noteRS = db.exectue('SELECT * FROM notes');
-	noteRS = db.execute('SELECT * FROM notes');
+	var noteRS = db.exectue('SELECT id,title,urgent,body FROM notes');
 	while(noteRS.field(0) != currentNote)
 	{
 		noteRS.next();
 	};
 	noteTitleInput.value = noteRS.field(1);
-	noteTextInput.value = noteRS.field(3);
-	noteDateInput.value = noteRS.field(2);
+	noteTextInput.value = noteRS.field(2);
+	noteDateInput.value = noteRS.field(4);
 	editing = true;
 	navGroup.openWindow(noteEditor);
 };
 editButton.addEventListener('click', editNote);
 var fieldCheck = function()
 {
-	if(noteTitleInput.value != '' && noteTextInput.value != '')
+	if(noteTitleInput.value != null && noteTextInput.value != null)
 	{
 		return true;
 	}
@@ -120,15 +104,15 @@ var fieldCheck = function()
 };
 var saveData = function()
 {
-	if(fieldCheck() === true)
+	if(fieldCheck())
 	{
 		if(editing)
 		{
-			db.execute('UPDATE notes SET title=?, date=?, body=? WHERE id=?',noteTitleInput.value, noteDateInput.value, noteTextInput.value, currentNote);
+			db.exeute('UPDATE notes SET title=?, date=?, body=? WHERE id=?',noteTitleInput.value, noteDateInput.value, noteTextInput.value, currentNote);
 		}
 		else
 		{
-			db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', noteTitleInput.value, noteDateInput.value, noteTextInput.value);
+			db.execute('INSERT INTO notes (title, date, body) VALUES(?, ?, ?)', noteTitleInput.value, noteDateInput.value, noteDateInput.value);
 		};
 	}
 	else
@@ -139,24 +123,12 @@ var saveData = function()
 	navGroup.closeWindow(noteDetailWindow);
 	drawList();
 };
-
-var deleteData = function()
-{
-	db.execute('DELETE FROM notes WHERE id=?', currentNote);
-	navGroup.closeWindow(noteDetailWindow);
-	drawList();
-};
 saveButton.add(saveLabel);
 saveButton.addEventListener('click', saveData);
-deleteButton.add(deleteLabel);
-deleteButton.addEventListener('click', deleteData);
 noteEditor.add(noteTitleInput);
-noteEditor.add(bodyLabel);
 noteEditor.add(noteTextInput);
 noteEditor.add(noteDateInput);
 noteEditor.add(saveButton);
-noteEditor.add(deleteButton);
-
 var newNote = function(){
 	noteRS = db.execute('SELECT * FROM notes');
 	editing = false;
@@ -164,7 +136,7 @@ var newNote = function(){
 	noteTextInput.value = null;
 	noteDateInput.value = null;
 	navGroup.openWindow(noteEditor);
-	currentNote = noteRS.rowCount;
+	currentNote = noteRS.rowCount();
 	
 };
 
@@ -192,7 +164,6 @@ noteDetailWindow.add(noteTitle);
 noteDetailWindow.add(noteText);
 noteDetailWindow.add(noteDate);
 noteDetailWindow.add(editButton);
-noteDetailWindow.add(deleteButton);
 var noteDetails = Ti.UI.createWindow({
 	backgroundColor: "#606060"
 });
@@ -229,18 +200,18 @@ var drawList = function(){
 				text: noteRS.field(3),
 				font: {fontSize: 16, fontFamily: 'Arial'},
 				noteNum: noteRS.fieldByName('id'),
-				date: noteRS.field(2),
+				date: notesRS.field(2),
 				hasChild: true
 			});
 			chunk.add(theRow);
 			theRow.addEventListener('click', viewNote);
-			noteRS.next();
+			
 		};
 		var section = [chunk, chunk2];
 		table.setData(section);
 };
 
+goButton.addEventListener('click', drawList);
 scrollView.add(table);
-drawList();
 
 
