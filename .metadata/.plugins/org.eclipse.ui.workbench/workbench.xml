@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench version="2.0">
 <workbenchAdvisor/>
-<window height="874" width="1200" x="110" y="41">
+<window height="874" maximized="true" width="1440" x="53" y="115">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -17,7 +17,7 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="com.appcelerator.titanium.ui.ide.tiappEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.appcelerator.titanium.ui.ide.tiappEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="com.aptana.editor.js" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -30,22 +30,17 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.aptana.editor.js" name="app.js" partName="app.js | ASD1402_Lohse_Nathan_Week1" path="/Users/Nathan/Desktop/ASD/ASD1402_Lohse_Nathan_Week1/Resources/app.js" title="app.js | ASD1402_Lohse_Nathan_Week1" tooltip="ASD1402_Lohse_Nathan_Week1/Resources/app.js" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ASD1402_Lohse_Nathan_Week1/Resources/app.js"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="com.aptana.editor.js" name="app.js" partName="app.js" path="/Users/Nathan/Desktop/ASD/ASDI1402_Week3/Resources/app.js" title="app.js" tooltip="ASDI1402_Week3/Resources/app.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ASDI1402_Week3/Resources/app.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="255" selectionTopPixel="0"/>
 </editor>
-<editor id="com.appcelerator.titanium.ui.ide.tiappEditor" name="tiapp.xml" partName="TiApp Editor" path="/Users/Nathan/Desktop/ASD/ASD1402_Lohse_Nathan_Week1/tiapp.xml" title="TiApp Editor" tooltip="ASD1402_Lohse_Nathan_Week1/tiapp.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ASD1402_Lohse_Nathan_Week1/tiapp.xml"/>
-</editor>
-<editor activePart="true" focus="true" id="com.aptana.editor.js" name="app.js" partName="app.js | Lohse_Nathan_Project1" title="app.js | Lohse_Nathan_Project1" tooltip="/Users/Nathan/Desktop/Visual Frameworks/Lohse_Nathan_Project1/Resources/app.js" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project1/Resources/app.js"/>
-<editorState selectionHorizontalPixel="0" selectionLength="163" selectionOffset="0" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="com.aptana.editor.js" name="Form.js" partName="Form.js" path="/Users/Nathan/Desktop/ASD/ASDI1402_Week3/Resources/Form.js" title="Form.js" tooltip="ASDI1402_Week3/Resources/Form.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ASDI1402_Week3/Resources/Form.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4793" selectionTopPixel="2194"/>
 </editor>
 </editors>
 <views>
@@ -57,9 +52,7 @@
 </view>
 <view id="com.aptana.explorer.view" partName="App Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="0" GitChangedFilesFilterEnabled="" activeProject="ASD1402_Lohse_Nathan_Week1">
-<project name="ASD1402_Lohse_Nathan_Week1">
-<selection>
-<element path="/ASD1402_Lohse_Nathan_Week1"/>
+<project name="ASD1402_Lohse_Nathan_Week1">&#x0A;<selection>&#x0A;<element path="/ASD1402_Lohse_Nathan_Week1"/>
 </selection>
 </project>
 </viewState>
@@ -68,7 +61,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.aptana.editor.js" activePerspective="com.appcelerator.titanium.ui.StudioPerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="com.appcelerator.titanium.ui.StudioPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.appcelerator.titanium.ui.perspectives.TitaniumStudioPerspectiveFactory" id="com.appcelerator.titanium.ui.StudioPerspective" label="Studio"/>
 <alwaysOnActionSet id="com.aptana.browser.actionSet"/>
@@ -158,26 +151,163 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" path="/ASD1402_Lohse_Nathan_Week1/Resources/app.js"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project1/Resources/app.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" path="/ASDI1402_Week3/Resources/app.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" path="/ASDI1402_Week3/Resources/Form.js"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" uri="file:/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan/Resources/Notepad.js"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" uri="file:/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan/Resources/app.js"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project4/Resources/CustomWindow.js"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project2/Resources/itemTables.js"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project2/Resources/app.js"/>
 </editors>
-<item historyLabel="app.js | ASD1402_Lohse_Nathan_Week1" index="0">
+<item historyLabel="Notepad.js" index="2">
+<position info="not_deleted" x="4533" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="199" y="186"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="Notepad.js" index="2">
+<position info="not_deleted" x="4533" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="199" y="186"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="324" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="706" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="706" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="726" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="726" y="0"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="726" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="726" y="0"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="5117" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="41" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="732" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="737" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="3094" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="2111" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="2140" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="2983" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="3022" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="3035" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="3214" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="2761" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="2820" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="4041" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="4043" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="2861" y="0"/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position/>
+</item>
+<item historyLabel="Form.js" index="1">
+<position info="not_deleted" x="4793" y="0"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item historyLabel="Notepad.js" index="2">
+<position info="not_deleted" x="4533" y="0"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item historyLabel="CustomWindow.js" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="app.js | Lohse_Nathan_Project1" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="255" y="0"/>
 </item>
-<item historyLabel="app.js | ASD1402_Lohse_Nathan_Week1" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="itemTables.js" index="5">
+<position info="not_deleted" x="2017" y="42"/>
 </item>
-<item historyLabel="app.js | Lohse_Nathan_Project1" index="1">
-<position info="not_deleted" x="0" y="163"/>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="255" y="0"/>
 </item>
-<item historyLabel="app.js | ASD1402_Lohse_Nathan_Week1" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="app.js | Lohse_Nathan_Project2" index="6">
+<position info="not_deleted" x="287" y="42"/>
 </item>
-<item active="true" historyLabel="app.js | Lohse_Nathan_Project1" index="1">
-<position info="not_deleted" x="0" y="163"/>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item historyLabel="app.js | MIU1401_Lohse_Nathan" index="3">
+<position info="not_deleted" x="75" y="122"/>
+</item>
+<item historyLabel="app.js" index="0">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item active="true" historyLabel="Form.js" index="1">
+<position info="not_deleted" x="4793" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -194,14 +324,47 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="/Users/Nathan/Desktop/Visual Frameworks/Lohse_Nathan_Project1/Resources/app.js">
-<persistable uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project1/Resources/app.js"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan/Resources/app.js">
+<persistable uri="file:/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan/Resources/app.js"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.appcelerator.titanium.ui.ide.tiappEditor" name="tiapp.xml" tooltip="ASD1402_Lohse_Nathan_Week1/tiapp.xml">
-<persistable path="/ASD1402_Lohse_Nathan_Week1/tiapp.xml"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="/Users/Nathan/Desktop/Visual Frameworks/Lohse_Nathan_Project2/Resources/app.js">
+<persistable uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project2/Resources/app.js"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="ASD1402_Lohse_Nathan_Week1/Resources/app.js">
-<persistable path="/ASD1402_Lohse_Nathan_Week1/Resources/app.js"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="itemTables.js" tooltip="/Users/Nathan/Desktop/Visual Frameworks/Lohse_Nathan_Project2/Resources/itemTables.js">
+<persistable uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project2/Resources/itemTables.js"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="CustomWindow.js" tooltip="/Users/Nathan/Desktop/Visual Frameworks/Lohse_Nathan_Project4/Resources/CustomWindow.js">
+<persistable uri="file:/Users/Nathan/Desktop/Visual%20Frameworks/Lohse_Nathan_Project4/Resources/CustomWindow.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" name="Form.js" tooltip="ASDI1402_Week3/Resources/Form.js">
+<persistable path="/ASDI1402_Week3/Resources/Form.js"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="Notepad.js" tooltip="/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan/Resources/Notepad.js">
+<persistable uri="file:/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan/Resources/Notepad.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.appcelerator.titanium.ui.ide.tiappEditor" name="tiapp.xml" tooltip="ASDI1402_Week3/tiapp.xml">
+<persistable path="/ASDI1402_Week3/tiapp.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="ASDI1402_Week3/Resources/app.js">
+<persistable path="/ASDI1402_Week3/Resources/app.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" name="wowArmory.js" tooltip="ASDI1402_Week2/Resources/wowArmory.js">
+<persistable path="/ASDI1402_Week2/Resources/wowArmory.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.appcelerator.titanium.ui.ide.tiappEditor" name="tiapp.xml" tooltip="ASDI1402_Week2/tiapp.xml">
+<persistable path="/ASDI1402_Week2/tiapp.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="ASDI1402_Week2/Resources/app.js">
+<persistable path="/ASDI1402_Week2/Resources/app.js"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="ChampionViewer.js" tooltip="/Users/Nathan/Desktop/MIU1401/MIU1401_LohseNathan_Week4_UtilityProject/Resources/ChampionViewer.js">
+<persistable uri="file:/Users/Nathan/Desktop/MIU1401/MIU1401_LohseNathan_Week4_UtilityProject/Resources/ChampionViewer.js"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.js" name="app.js" tooltip="/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan_Week3/Resources/app.js">
+<persistable uri="file:/Users/Nathan/Desktop/MIU1401/MIU1401_Lohse_Nathan_Week3/Resources/app.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.aptana.editor.js" name="objectDemo.js" tooltip="ASD1402_Lohse_Nathan_Week1/Resources/objectDemo.js">
+<persistable path="/ASD1402_Lohse_Nathan_Week1/Resources/objectDemo.js"/>
 </file>
 </mruList>
 </workbench>
