@@ -33,7 +33,7 @@ var scrollView = Ti.UI.createScrollView({
 });
 
 
-var formFile = require('Final');
+var formFile = require('Form');
 var head = Ti.UI.createLabel({
 		text: null
 	});

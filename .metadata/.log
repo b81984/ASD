@@ -1422,3 +1422,6 @@ org.eclipse.core.runtime.CoreException: Unable to find 'alloy' binary.
 
 !ENTRY org.eclipse.osgi 2 1 2014-02-27 11:40:32.495
 !MESSAGE NLS missing message: BasicProjectCreationPage_crossPlatformWarningIOS in: com.appcelerator.titanium.ui.wizard.messages
+
+!ENTRY org.eclipse.osgi 2 1 2014-02-27 11:58:33.292
+!MESSAGE NLS missing message: NodeTitaniumSDKCommandsHandler_mobileWebBuild in: com.appcelerator.titanium.mobile.cli.messages
